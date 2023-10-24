@@ -5,6 +5,7 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
+
 contract RealEstateToken is ERC721Enumerable, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIdCounter;
@@ -29,7 +30,22 @@ contract RealEstateToken is ERC721Enumerable, Ownable {
 
     mapping(uint256 => RealEstate) public realEstates;
 
-    constructor() ERC721("RealEstateToken", "RET") Ownable(msg.sender) {} // Fixed the Ownable constructor here
+    // Event to monitor the creation of a real estate token.
+    event RealEstateCreated(
+        uint256 indexed tokenId,
+        string description,
+        string location,
+        uint256 price,
+        string imageHash,
+        PropertyType propertyType,
+        BuildingType buildingType,
+        uint8 storeys,
+        uint256 landSize,
+        uint256 propertyTaxes,
+        ParkingType parkingType
+    );
+
+    constructor() ERC721("RealEstateToken", "RET") Ownable(msg.sender) {}
 
     // Function to create a new real estate token.
     function createRealEstateToken(
@@ -59,6 +75,22 @@ contract RealEstateToken is ERC721Enumerable, Ownable {
             propertyTaxes,
             parkingType
         );
+
+        // Emit the RealEstateCreated event
+        emit RealEstateCreated(
+            newTokenId,
+            description,
+            location,
+            price,
+            imageHash,
+            propertyType,
+            buildingType,
+            storeys,
+            landSize,
+            propertyTaxes,
+            parkingType
+        );
+
         return newTokenId;
     }
 
