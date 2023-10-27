@@ -20,7 +20,6 @@ The project successfully demonstrated the potential of blockchain and smart cont
 ### Demo of App: TBD
 
 ### Transactions on Ganache: TBD
-<img width="1062" alt="Screenshot 2023-09-28 at 11 48 32 PM" src="https://github.com/P4RASTOO/Challenge_19/assets/132952512/dfd45aab-8d8f-420a-bd61-8b4aeb097f21">
 
 ### Sidebar Streamlit: TBD
 
