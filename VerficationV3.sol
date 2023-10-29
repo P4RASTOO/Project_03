@@ -14,11 +14,13 @@ contract PropertyVerification {
     event PropertyAdded(uint256 propertyId, string details);
     event PropertyVerified(uint256 propertyId);
 
-    function addProperty(string memory _details) public {
+    function addProperty(string memory _details) public returns (uint) {
         propertyCount++;
         properties[propertyCount] = Property(propertyCount, _details, false);
         emit PropertyAdded(propertyCount, _details);
-    }
+        return propertyCount;
+}
+
 
     function verifyProperty(uint256 _propertyId) public returns (bool) {
         require(properties[_propertyId].id != 0, "Property does not exist");
