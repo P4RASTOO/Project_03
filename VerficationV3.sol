@@ -20,11 +20,12 @@ contract PropertyVerification {
         emit PropertyAdded(propertyCount, _details);
     }
 
-    function verifyProperty(uint256 _propertyId) public {
+    function verifyProperty(uint256 _propertyId) public returns (bool) {
         require(properties[_propertyId].id != 0, "Property does not exist");
         properties[_propertyId].isVerified = true;
         emit PropertyVerified(_propertyId);
-    }
+        return true;
+}
 
     function isPropertyVerified(uint256 _propertyId) public view returns (bool) {
         return properties[_propertyId].isVerified;
