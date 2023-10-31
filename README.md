@@ -17,9 +17,3 @@ Created a decentralized marketplace for real estate transactions. The contract h
 ## Summary:
 The project successfully demonstrated the potential of blockchain and smart contracts in real estate. Property verification ensured the integrity of assets, while tokenization made them more accessible and tradable. The decentralized marketplace provided a secure environment for property transactions.
 
-### Demo of App: TBD
-
-### Transactions on Ganache: TBD
-
-### Sidebar Streamlit: TBD
-
